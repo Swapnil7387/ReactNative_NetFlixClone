@@ -101,7 +101,7 @@ const LoginScreen = () => {
             Sign In
           </Text>
         </Pressable>
-        <Pressable>
+        <Pressable onPress={()=> navigation.navigate('Register')}>
           <Text
             style={{
               textAlign: 'center',
