@@ -9,13 +9,13 @@ const ProfileScreen = () => {
   const appLogo = require('../Assets/images/appLogo.png');
   const navigation = useNavigation();
   const {profile, setProfile} = useContext(MovieItems);
-//   console.log('Profile:', profile);
+  //   console.log('Profile:', profile);
   const profiles = [
     {
       id: '0',
       image:
         'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSd5_C49-HkFimzHQHqQwMLnCq4fHr1pgLtvw&usqp=CAU',
-      name: 'Pranav',
+      name: 'Swapnil',
     },
     {
       id: '1',
@@ -27,19 +27,21 @@ const ProfileScreen = () => {
       id: '2',
       image:
         'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPsVAeFlYeYOEUzb3TV1ML91_LPkkFML5lRQcMdr9nQu2CqO-WzT-RLmkM5_cOKvkaBkI&usqp=CAU',
-      name: 'Kiran',
+      name: 'Sham',
     },
     {
       id: '3',
       image:
         'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-yQFL1YOsN3esm6p1jB1HT-Q6qKtxtZqh9LGwMDIgDCy-p54eMf8jdGSN6yZUeySqseA&usqp=CAU',
-      name: 'Samarth',
+      name: 'Vivek',
     },
   ];
 
   return (
     <SafeAreaView style={{backgroundColor: 'black', flex: 1}}>
-      <TouchableOpacity style={{flexDirection: 'row', alignItems: 'center'}}>
+      {/* <TouchableOpacity
+        // onPress={navigation.navigate('Login')}
+        style={{flexDirection: 'row', alignItems: 'center'}}>
         <Image source={BackIcon} style={{width: 34, height: 34}} />
         <Text
           style={{
@@ -50,7 +52,7 @@ const ProfileScreen = () => {
           }}>
           Profile Screen
         </Text>
-      </TouchableOpacity>
+      </TouchableOpacity> */}
       <View style={{alignItems: 'center', justifyContent: 'center'}}>
         <Image
           style={{height: 50, width: 120, marginTop: 20}}
@@ -70,7 +72,7 @@ const ProfileScreen = () => {
               style={{marginHorizontal: 10, padding: 20, marginTop: 10}}
               onPress={() => {
                 setProfile(item);
-                navigation.navigate('Loading');
+                navigation.navigate('Home');
               }}>
               <Image
                 style={{height: 110, width: 110}}

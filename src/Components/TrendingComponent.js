@@ -1,5 +1,12 @@
 import React, {useState, useEffect} from 'react';
-import {View, Text, Image, TouchableOpacity, FlatList} from 'react-native';
+import {
+  View,
+  Text,
+  Image,
+  TouchableOpacity,
+  FlatList,
+  StyleSheet,
+} from 'react-native';
 const TrendingComponent = () => {
   const [mydata, setMyData] = useState([]);
   useEffect(() => {
@@ -83,27 +90,16 @@ const TrendingComponent = () => {
     setMyData(arrayOfMovies);
   }, []);
   return (
-    <View style={{marginBottom: 20}}>
+    <View style={styles.container}>
       <FlatList
         horizontal
         data={mydata}
         renderItem={item => {
           return (
             <TouchableOpacity>
-              <Text
-                style={{
-                  color: 'white',
-                  fontSize: 50,
-                  fontWeight: 'bold',
-                  position: 'absolute',
-                  top: 95,
-                  left: 10,
-                  zIndex: 5,
-                }}>
-                {item.item.id}
-              </Text>
+              <Text style={styles.trendingId}>{item.item.id}</Text>
               <Image
-                style={{height: 150, width: 110, marginHorizontal: 10}}
+                style={styles.trendingImage}
                 source={{
                   uri: item.item.imageUri,
                 }}
@@ -115,4 +111,24 @@ const TrendingComponent = () => {
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    marginBottom: 20,
+  },
+  trendingId: {
+    color: 'white',
+    fontSize: 50,
+    fontWeight: 'bold',
+    position: 'absolute',
+    top: 95,
+    left: 10,
+    zIndex: 5,
+  },
+  trendingImage: {
+    height: 150,
+    width: 110,
+    marginHorizontal: 10,
+  },
+});
 export default TrendingComponent;

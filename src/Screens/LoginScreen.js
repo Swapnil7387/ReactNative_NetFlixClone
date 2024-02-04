@@ -10,12 +10,25 @@ import {
   Image,
   TextInput,
   Pressable,
+  Alert
 } from 'react-native';
 const LoginScreen = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState('swapnil@gamil.com');
+  const [password, setPassword] = useState('1234');
   const navigation = useNavigation();
   const appLogo = require('../Assets/images/appLogo.png');
+  const clearStates = () => {
+    setEmail();
+    setPassword('');
+  }
+  const navigateToProfileScreen = () => {
+    if(email != 'swapnil@gamil.com' && password != '1234'){
+      Alert.alert('Alert', 'To login into application, please fill below crendentials. E-mail: swapnil@gmail.com Password: 1234' , [
+        {text: 'OK', onPress: () => clearStates},
+      ]);
+    } else{
+      navigation.navigate("Profile")}
+    }
   return (
     <SafeAreaView
       style={{
@@ -89,7 +102,8 @@ const LoginScreen = () => {
                 borderWidth: 2,
                 padding: 14,
               }}
-          onPress={() => navigation.navigate("Profile")}
+          // onPress={() => navigation.navigate("Profile")}
+          onPress={navigateToProfileScreen}
         >
           <Text
             style={{

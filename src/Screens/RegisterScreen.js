@@ -8,6 +8,7 @@ import {
   SafeAreaView,
   Image,
   TextInput,
+  Alert
 } from 'react-native';
 
 const RegisterScreen = () => {
@@ -15,6 +16,18 @@ const RegisterScreen = () => {
   const [password, setPassword] = useState('');
   const navigation = useNavigation();
   const appLogo = require('../Assets/images/appLogo.png');
+  const navigateToRegisterScreen = () => {
+    console.log("1234>>>>>>>>>>>>>>>>>>>>>>>.", email);
+    if (email === '' || password === '') {
+      Alert.alert(
+        'Alert',
+        'Fill something in the place of email and password',
+        [{text: 'OK'}],
+      );
+    } else {
+      navigation.navigate('PlanScreen');
+    }
+  };
   return (
     <SafeAreaView
       style={{
@@ -90,7 +103,8 @@ const RegisterScreen = () => {
                   padding: 14,
                 }
           }
-          onPress={() => navigation.navigate('PlanScreen')}>
+          // onPress={() => navigation.navigate('PlanScreen')}
+          onPress={() => navigateToRegisterScreen()}>
           <Text
             style={{
               color: 'white',

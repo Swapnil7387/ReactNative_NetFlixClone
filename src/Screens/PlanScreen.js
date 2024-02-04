@@ -6,6 +6,7 @@ import {
   Image,
   Pressable,
   ScrollView,
+  Alert
 } from 'react-native';
 import plans from '../Data/plans';
 // import NetFlixLogo from '../Assets/images/NetflixLogo.svg';
@@ -17,6 +18,13 @@ const PlanScreen = () => {
   const [selected, setSelected] = useState([]);
   const [price, setPrice] = useState();
   console.log(selected);
+  const payAmmount = () => {
+    Alert.alert(
+      'Alert',
+      'Stripe will coming soon...',
+      [{text: 'OK'}],
+    );
+  }
   return (
     <>
       <ScrollView style={{ marginTop: 20 }}>
@@ -158,7 +166,9 @@ const PlanScreen = () => {
           <View>
             <Text style={{ color: 'white' }}>Your Selected Plan: {selected}</Text>
           </View>
-          <Pressable>
+          <Pressable
+          onPress={()=> payAmmount()}
+          >
             <Text style={{ color: 'white' }}>Pay:{' '} ₹{price}</Text>
           </Pressable>
         </Pressable>
