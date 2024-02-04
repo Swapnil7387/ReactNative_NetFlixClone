@@ -89,7 +89,7 @@ const LoginScreen = () => {
                 borderWidth: 2,
                 padding: 14,
               }}
-          onPress={() => navigation.navigate("Register")}
+          onPress={() => navigation.navigate("Profile")}
         >
           <Text
             style={{
